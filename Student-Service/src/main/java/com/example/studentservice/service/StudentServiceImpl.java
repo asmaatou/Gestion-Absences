@@ -37,7 +37,7 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public StudentResponseDto findById(Long id) {
         Student student = studentRepo.findById(id).orElseThrow(()->new RuntimeException("Student not found"));
-        return null;
+        return studentMapper.studentToResponse(student);
     }
 
     @Override

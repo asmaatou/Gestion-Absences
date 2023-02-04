@@ -33,16 +33,23 @@ public class ProfessorServiceImp implements ProfessorService{
 
     @Override
     public ProfessorResponseDto findById(Long id) {
-        return null;
+        Professor professor = professorRepo.findById(id).orElseThrow(()->new RuntimeException("Professor not found"));
+        return professorMapper.professorToResponse(professor);
     }
 
     @Override
     public ProfessorResponseDto updateProfessor(Long id, ProfessorRequestDto professorRequestDto) {
-        return null;
+        Professor professor = professorRepo.findById(id).orElseThrow(()->new RuntimeException("Professor Not found"));
+        professor.setFname(professorRequestDto.getFname());
+        professor.setLname(professorRequestDto.getLname());
+        professor.setEmail(professorRequestDto.getEmail());
+        professor.setAdress(professorRequestDto.getAdress());
+        professorRepo.save(professor);
+        return professorMapper.professorToResponse(professor);
     }
 
     @Override
     public void deleteProfessor(Long id) {
-
+        professorRepo.deleteById(id);
     }
 }
