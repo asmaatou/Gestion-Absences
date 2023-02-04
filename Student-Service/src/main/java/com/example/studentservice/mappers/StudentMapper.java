@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class StudentMapper {
     public static Student requestToStudent(StudentRequestDto StudentRequestDto){
-        Student Student = new Student();
-        BeanUtils.copyProperties(StudentRequestDto,Student);
-        return Student;
+        Student student = new Student();
+        BeanUtils.copyProperties(StudentRequestDto,student);
+        return student;
     }
 
-    public static StudentResponseDto studentToResponse(Student Student){
+    public static StudentResponseDto studentToResponse(Student student){
         StudentResponseDto StudentResponseDto = new StudentResponseDto();
-        BeanUtils.copyProperties(Student,StudentResponseDto);
+        BeanUtils.copyProperties(student,StudentResponseDto);
         return StudentResponseDto;
     }
 }
