@@ -6,6 +6,8 @@ import com.example.professorsservice.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/api/json/professor/",produces = "application/json")
 public class ProfessorController {
@@ -15,6 +17,15 @@ public class ProfessorController {
     @PostMapping("addProfessor/{id}")
     public ProfessorResponseDto addProfessor(@PathVariable Long id, @RequestBody ProfessorRequestDto professorRequestDto){
         return professorService.addProfessor(id,professorRequestDto);
+    }
+    @GetMapping("allProfessor")
+    public List<ProfessorResponseDto> getAll(){
+        return professorService.findAll();
+    }
+
+    @GetMapping("ProfessorById/{id}")
+    public ProfessorResponseDto professorById(@PathVariable Long id){
+        return professorService.findById(id);
     }
     
 }
