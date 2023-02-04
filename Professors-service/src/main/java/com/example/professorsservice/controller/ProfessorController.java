@@ -27,5 +27,14 @@ public class ProfessorController {
     public ProfessorResponseDto professorById(@PathVariable Long id){
         return professorService.findById(id);
     }
+    @PutMapping("update")
+    public ProfessorResponseDto updateProfessor(@PathVariable Long id,@RequestBody ProfessorRequestDto dto){
+        return  professorService.updateProfessor(id, dto);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public  void deleteProfessor(@PathVariable Long id){
+        professorService.deleteProfessor(id);
+    }
     
 }
