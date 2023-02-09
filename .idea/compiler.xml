@@ -6,25 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Course-Service" />
         <module name="Professors-service" />
         <module name="Gateway-Service" />
-        <module name="Student-Service" />
+        <module name="Courses-Service" />
+        <module name="Eureka-Discovery" />
+        <module name="Students-Service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Course-Service" target="17" />
+      <module name="Courses-Service" target="17" />
+      <module name="Eureka-Discovery" target="1.8" />
       <module name="Gateway-Service" target="1.8" />
       <module name="Professors-service" target="1.8" />
-      <module name="Student-Service" target="1.8" />
+      <module name="Students-Service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Course-Service" options="-parameters" />
+      <module name="Courses-Service" options="-parameters" />
+      <module name="Eureka-Discovery" options="-parameters" />
       <module name="Gateway-Service" options="-parameters" />
       <module name="Professors-service" options="-parameters" />
-      <module name="Student-Service" options="-parameters" />
+      <module name="Students-Service" options="-parameters" />
     </option>
   </component>
 </project>
