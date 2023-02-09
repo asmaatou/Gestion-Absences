@@ -15,9 +15,9 @@ public class GatewayServiceApplication {
 	@Bean
 	RouteLocator routage(RouteLocatorBuilder rlb){
 		return  rlb.routes()
-					.route(r -> r.path("/students/**").uri("http://localhost:8083/"))
-					.route(r -> r.path("/professors/**").uri("http://localhost:8084/"))
-					.route(r -> r.path("/courses/**").uri("http://localhost:8081/"))
+					.route(r -> r.path("/students/**").uri("lb://STUDENTS-SERVICE"))
+					.route(r -> r.path("/professors/**").uri("lb://PROFESSORS-SERVICE"))
+					.route(r -> r.path("/courses/**").uri("lb://COURSES-SERVICE"))
 					.build();
 	}
 
