@@ -18,7 +18,7 @@ public class ProfessorController {
     public Professor addProfessor(@RequestBody Professor professor){
         return professorService.addProfessor(professor);
     }
-    @GetMapping("allProfessor")
+    @GetMapping("allProfessors")
     public List<Professor> getAll(){
         return professorService.findAll();
     }
