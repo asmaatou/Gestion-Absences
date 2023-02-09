@@ -11,6 +11,7 @@
         <module name="Gateway-Service" />
         <module name="Courses-Service" />
         <module name="Eureka-Discovery" />
+        <module name="Students-service" />
         <module name="Students-Service" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="Gateway-Service" target="1.8" />
       <module name="Professors-service" target="1.8" />
       <module name="Students-Service" target="1.8" />
+      <module name="Students-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -29,6 +31,7 @@
       <module name="Gateway-Service" options="-parameters" />
       <module name="Professors-service" options="-parameters" />
       <module name="Students-Service" options="-parameters" />
+      <module name="Students-service" options="-parameters" />
     </option>
   </component>
 </project>
