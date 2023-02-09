@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/json/student/",produces = "application/json")
+@RequestMapping(path = "/api/json/students/",produces = "application/json")
 public class StudentController {
     @Autowired
     StudentService studentService;
