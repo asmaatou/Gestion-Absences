@@ -1,51 +1,36 @@
 package com.example.professorsservice.service;
 
-import com.example.professorsservice.dto.ProfessorRequestDto;
-import com.example.professorsservice.dto.ProfessorResponseDto;
 import com.example.professorsservice.entities.Professor;
-import com.example.professorsservice.mappers.ProfessorMapper;
 import com.example.professorsservice.repos.ProfessorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Service
 public class ProfessorServiceImp implements ProfessorService{
     @Autowired
     ProfessorRepo professorRepo;
-    @Autowired
-    ProfessorMapper professorMapper;
+
     @Override
-    public List<ProfessorResponseDto> findAll() {
-        return professorRepo.findAll().stream().map(professor -> professorMapper.professorToResponse(professor)).collect(Collectors.toList());
+    public List<Professor> findAll() {
+        return professorRepo.findAll();
     }
 
     @Override
-    public ProfessorResponseDto addProfessor(Long id, ProfessorRequestDto professorRequestDto) {
-        Professor professor = professorMapper.requestToProfessor(professorRequestDto);
-        professor.setFname(professorRequestDto.getFname());
-        professor.setLname(professorRequestDto.getLname());
-        professor.setEmail(professorRequestDto.getEmail());
-        professor.setAdress(professorRequestDto.getAdress());
-        professorRepo.save(professor);
-        return professorMapper.professorToResponse(professor);
+    public Professor addProfessor(Professor professor) {
+        return professorRepo.save(professor);
     }
 
     @Override
-    public ProfessorResponseDto findById(Long id) {
-        Professor professor = professorRepo.findById(id).orElseThrow(()->new RuntimeException("Professor not found"));
-        return professorMapper.professorToResponse(professor);
+    public Professor findById(Long id) {
+        return professorRepo.findById(id).orElseThrow(()->new RuntimeException("Professor not found"));
     }
 
     @Override
-    public ProfessorResponseDto updateProfessor(Long id, ProfessorRequestDto professorRequestDto) {
-        Professor professor = professorRepo.findById(id).orElseThrow(()->new RuntimeException("Professor Not found"));
-        professor.setFname(professorRequestDto.getFname());
-        professor.setLname(professorRequestDto.getLname());
-        professor.setEmail(professorRequestDto.getEmail());
-        professor.setAdress(professorRequestDto.getAdress());
-        professorRepo.save(professor);
-        return professorMapper.professorToResponse(professor);
+    public Professor updateProfessor(Long id, Professor professor) {
+        professor.setId(id);
+        return professorRepo.save(professor);
     }
 
     @Override
