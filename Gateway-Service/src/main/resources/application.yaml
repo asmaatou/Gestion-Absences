@@ -10,3 +10,7 @@ spring:
           uri: http://localhost:8084/
           predicates:
             - Path = /professors/**
+        - id: r3
+          uri: http://localhost:8081/
+          predicates:
+            - Path = /courses/**
