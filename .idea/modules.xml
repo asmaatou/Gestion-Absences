@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Absence-Service/Absence-Service.iml" filepath="$PROJECT_DIR$/Absence-Service/Absence-Service.iml" />
       <module fileurl="file://$PROJECT_DIR$/Course-Service/Courses-Service.iml" filepath="$PROJECT_DIR$/Course-Service/Courses-Service.iml" />
       <module fileurl="file://$PROJECT_DIR$/Courses-service/Courses-service.iml" filepath="$PROJECT_DIR$/Courses-service/Courses-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/Eureka-Discovery/Eureka-Discovery.iml" filepath="$PROJECT_DIR$/Eureka-Discovery/Eureka-Discovery.iml" />
