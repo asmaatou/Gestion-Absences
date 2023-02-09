@@ -17,6 +17,7 @@ public class GatewayServiceApplication {
 		return  rlb.routes()
 				.route(r -> r.path("/students/**").uri("http://localhost:8083/"))
 				.route(r -> r.path("/professors/**").uri("http://localhost:8084/"))
+				.route(r -> r.path("/courses/**").uri("http://localhost:8081/"))
 				.build();
 	}
 
