@@ -1,16 +1,15 @@
 package com.example.professorsservice.service;
 
-import com.example.professorsservice.dto.ProfessorRequestDto;
-import com.example.professorsservice.dto.ProfessorResponseDto;
+import com.example.professorsservice.entities.Professor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface ProfessorService {
-    List<ProfessorResponseDto> findAll();
-    ProfessorResponseDto addProfessor(Long id, ProfessorRequestDto professorRequestDto);
-    ProfessorResponseDto findById(Long id);
-    ProfessorResponseDto updateProfessor(Long id,ProfessorRequestDto professorRequestDto);
+    List<Professor> findAll();
+    Professor addProfessor(Professor professor);
+    Professor findById(Long id);
+    Professor updateProfessor(Long id,Professor professor);
     void deleteProfessor(Long id);
 }
