@@ -2,6 +2,9 @@ package com.example.gatewayservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.ReactiveDiscoveryClient;
+import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator;
+import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,10 +18,12 @@ public class GatewayServiceApplication {
 	@Bean
 	RouteLocator routage(RouteLocatorBuilder rlb){
 		return  rlb.routes()
-				.route(r -> r.path("/students/**").uri("http://localhost:8083/"))
-				.route(r -> r.path("/professors/**").uri("http://localhost:8084/"))
-				.route(r -> r.path("/courses/**").uri("http://localhost:8081/"))
-				.build();
+					.route(r -> r.path("/students/**").uri("http://localhost:8083/"))
+					.route(r -> r.path("/professors/**").uri("http://localhost:8084/"))
+					.build();
 	}
+
+
+
 
 }
