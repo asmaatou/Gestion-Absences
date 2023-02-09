@@ -1,37 +1,36 @@
 package com.example.studentsservice.controller;
 
-import com.example.studentservice.dto.StudentRequestDto;
-import com.example.studentservice.dto.StudentResponseDto;
-import com.example.studentservice.service.StudentService;
+import com.example.studentsservice.entities.Student;
+import com.example.studentsservice.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/json/students/",produces = "application/json")
+@RequestMapping(path = "/api/json/student/",produces = "application/json")
 public class StudentController {
     @Autowired
     StudentService studentService;
 
     @PostMapping("addStudent/{id}")
-    public StudentResponseDto addStudent(@PathVariable Long id, @RequestBody StudentRequestDto studentRequestDto){
-        return studentService.addStudent(id,studentRequestDto);
+    public Student addStudent(@PathVariable Long id, @RequestBody Student student){
+        return studentService.addStudent(student);
     }
 
     @GetMapping("allStudent")
-    public List<StudentResponseDto> getAll(){
+    public List<Student> getAll(){
         return studentService.findAll();
     }
 
     @GetMapping("StudentById/{id}")
-    public StudentResponseDto studentById(@PathVariable Long id){
+    public Student studentById(@PathVariable Long id){
         return studentService.findById(id);
     }
 
-    @PutMapping("update")
-    public StudentResponseDto updateStudent(@PathVariable Long id,@RequestBody StudentRequestDto dto){
-        return  studentService.updateStudent(id, dto);
+    @PutMapping("update/{id}")
+    public Student updateStudent(@PathVariable Long id,@RequestBody Student student){
+        return  studentService.updateStudent(id, student);
     }
 
     @DeleteMapping("delete/{id}")
