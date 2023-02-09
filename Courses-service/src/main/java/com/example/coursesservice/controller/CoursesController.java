@@ -15,7 +15,7 @@ public class CoursesController {
     CoursesService coursesService;
 
     @PostMapping("addCourses/{id}")
-    public Courses addProfessor(@RequestBody Courses courses){
+    public Courses addCourse(@RequestBody Courses courses){
         return coursesService.addCourses(courses);
     }
     @GetMapping("allCourses")
