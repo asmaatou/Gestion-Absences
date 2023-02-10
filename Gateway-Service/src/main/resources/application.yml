@@ -14,3 +14,7 @@ spring:
           uri: lb://COURSES-SERVICE
           predicates:
             - Path= /courses/**
+        - id: r4
+          uri: lb://ABSENCE-SERVICE
+          predicates:
+            - Path= /absences/**
