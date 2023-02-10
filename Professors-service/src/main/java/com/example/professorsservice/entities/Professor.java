@@ -17,6 +17,7 @@ public class Professor {
     private long id;
     private String Fname;
     private String Lname;
+    private String cni;
     private String email;
     private String adress;
 }
